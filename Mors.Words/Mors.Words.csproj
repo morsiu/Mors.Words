@@ -34,7 +34,15 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CommandHandlers\AddPolishGermanTranslationCommandHandler.cs" />
+    <Compile Include="EventPublisher.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Mors.Words.Data\Mors.Words.Data.csproj">
+      <Project>{b5b94f62-20ae-4cc3-8108-41714edb0ea9}</Project>
+      <Name>Mors.Words.Data</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
