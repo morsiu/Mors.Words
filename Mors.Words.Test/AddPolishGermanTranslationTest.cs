@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Mors.Words.CommandHandlers;
 using Mors.Words.Data.Commands;
 using Mors.Words.Data.Events;
@@ -27,10 +28,7 @@ namespace Mors.Words.Test
         }
 
         [Theory]
-        [InlineData("")]
-        [InlineData(" ")]
-        [InlineData("	")]
-        [InlineData(null)]
+        [MemberData("IncorrectWords")]
         public void ItIsNotPossibleToAddIncorrectPolishWord(string polishWord)
         {
             var command = new AddPolishGermanTranslationCommand(polishWord, "der Stuhl");
@@ -43,10 +41,7 @@ namespace Mors.Words.Test
         }
 
         [Theory]
-        [InlineData("")]
-        [InlineData(" ")]
-        [InlineData("	")]
-        [InlineData(null)]
+        [MemberData("IncorrectWords")]
         public void ItIsNotPossibleToAddIncorrectGermanWord(string germanWord)
         {
             var command = new AddPolishGermanTranslationCommand("krzesło", germanWord);
@@ -57,5 +52,14 @@ namespace Mors.Words.Test
                 handler.Execute(command, e => { });
             });
         }
+
+        public static IEnumerable<string[]> IncorrectWords =
+            new[]
+            { 
+                new[] { default(string) },
+                new[] { "" },
+                new[] { " " },
+                new[] { "	" }
+            };
     }
 }
