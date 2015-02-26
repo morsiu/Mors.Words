@@ -21,5 +21,13 @@ namespace Mors.Words.Test.Infrastructure
             Assert.Equal(typeof(TEvent), @event.GetType());
             eventContentsAssert((TEvent)@event);
         }
+
+        public void AssertAllEvents(Action<object> eventContentsAssert)
+        {
+            foreach (var @event in _events)
+            {
+                eventContentsAssert(@event);
+            }
+        }
     }
 }

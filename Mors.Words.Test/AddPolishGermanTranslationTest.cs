@@ -29,28 +29,32 @@ namespace Mors.Words.Test
 
         [Theory]
         [MemberData("IncorrectWords")]
-        public void ItIsNotPossibleToAddIncorrectPolishWord(string polishWord)
+        public void ItIsNotPossibleToAddTranslationWithIncorrectPolishWord(string polishWord)
         {
             var command = new AddPolishGermanTranslationCommand(polishWord, "der Stuhl");
             var handler = new AddPolishGermanTranslationCommandHandler();
+            var events = new EventRecorder();
 
             Assert.Throws<Exception>(() =>
             {
-                handler.Execute(command, e => { });
+                handler.Execute(command, events.Record);
             });
+            events.AssertAllEvents(e => Assert.IsNotType<PolishGermanTranslationAddedEvent>(e));
         }
 
         [Theory]
         [MemberData("IncorrectWords")]
-        public void ItIsNotPossibleToAddIncorrectGermanWord(string germanWord)
+        public void ItIsNotPossibleToAddTranslationWithIncorrectGermanWord(string germanWord)
         {
             var command = new AddPolishGermanTranslationCommand("krzesło", germanWord);
             var handler = new AddPolishGermanTranslationCommandHandler();
+            var events = new EventRecorder();
 
             Assert.Throws<Exception>(() =>
             {
-                handler.Execute(command, e => { });
+                handler.Execute(command, events.Record);
             });
+            events.AssertAllEvents(e => Assert.IsNotType<PolishGermanTranslationAddedEvent>(e));
         }
 
         public static IEnumerable<string[]> IncorrectWords =
