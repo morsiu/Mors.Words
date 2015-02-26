@@ -1,4 +1,6 @@
-﻿using Mors.Words.Data.Commands;
+﻿using System;
+using Mors.Words.Data.Commands;
+using Mors.Words.Data.Events;
 
 namespace Mors.Words.CommandHandlers
 {
@@ -6,6 +8,9 @@ namespace Mors.Words.CommandHandlers
     {
         public void Execute(AddPolishGermanTranslationCommand command, EventPublisher eventPublisher)
         {
+            if (string.IsNullOrWhiteSpace(command.PolishWord)) throw new Exception();
+            if (string.IsNullOrWhiteSpace(command.GermanWord)) throw new Exception();
+            eventPublisher(new PolishGermanTranslationAddedEvent(command.PolishWord, command.GermanWord));
         }
     }
 }

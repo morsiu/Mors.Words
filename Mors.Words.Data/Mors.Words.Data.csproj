@@ -34,7 +34,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Commands\AddPolishGermanTranslationCommand.cs" />
-    <Compile Include="Events\PolishGermanTranslationAdded.cs" />
+    <Compile Include="Events\PolishGermanTranslationAddedEvent.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

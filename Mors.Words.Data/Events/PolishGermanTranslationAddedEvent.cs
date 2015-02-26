@@ -1,8 +1,8 @@
 ﻿namespace Mors.Words.Data.Events
 {
-    public sealed class PolishGermanTranslationAdded
+    public sealed class PolishGermanTranslationAddedEvent
     {
-        public PolishGermanTranslationAdded(string polishWord, string germanWord)
+        public PolishGermanTranslationAddedEvent(string polishWord, string germanWord)
         {
             PolishWord = polishWord;
             GermanWord = germanWord;
