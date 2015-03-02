@@ -1,5 +1,8 @@
-﻿namespace Mors.Words.Data.Commands
+﻿using System.Runtime.Serialization;
+
+namespace Mors.Words.Data.Commands
 {
+    [DataContract]
     public sealed class AddPolishGermanTranslationCommand
     {
         public AddPolishGermanTranslationCommand(
@@ -10,8 +13,10 @@
             GermanWord = germanWord;
         }
 
+        [DataMember]
         public string GermanWord { get; private set; }
 
+        [DataMember]
         public string PolishWord { get; private set; }
     }
 }
