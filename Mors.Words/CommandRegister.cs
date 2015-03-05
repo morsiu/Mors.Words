@@ -6,5 +6,5 @@ using System.Threading.Tasks;
 
 namespace Mors.Words
 {
-    public delegate void CommandRegister(Type commandType, Action<object, EventPublisher> commandHandler);
+    public delegate void CommandRegister(Type commandType, Action<object, EventPublisher, IdFactory> commandHandler);
 }

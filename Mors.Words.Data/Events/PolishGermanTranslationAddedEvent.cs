@@ -5,11 +5,15 @@ namespace Mors.Words.Data.Events
     [DataContract]
     public sealed class PolishGermanTranslationAddedEvent
     {
-        public PolishGermanTranslationAddedEvent(string polishWord, string germanWord)
+        public PolishGermanTranslationAddedEvent(object translationId, string polishWord, string germanWord)
         {
+            TranslationId = translationId;
             PolishWord = polishWord;
             GermanWord = germanWord;
         }
+
+        [DataMember]
+        public object TranslationId { get; private set; }
 
         [DataMember]
         public string GermanWord { get; private set; }

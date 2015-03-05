@@ -38,6 +38,7 @@
     <Compile Include="CommandHandlers\AddPolishGermanTranslationCommandHandler.cs" />
     <Compile Include="CommandRegister.cs" />
     <Compile Include="EventPublisher.cs" />
+    <Compile Include="IdFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

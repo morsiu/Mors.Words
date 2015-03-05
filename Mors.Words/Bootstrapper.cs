@@ -10,7 +10,7 @@ namespace Mors.Words
             var commandHandler = new AddPolishGermanTranslationCommandHandler();
             commandRegister(
                 typeof(AddPolishGermanTranslationCommand),
-                (cmd, epub) => commandHandler.Execute((AddPolishGermanTranslationCommand)cmd, epub));
+                (command, eventPublisher, idFactory) => commandHandler.Execute((AddPolishGermanTranslationCommand)command, eventPublisher, idFactory));
         }
     }
 }

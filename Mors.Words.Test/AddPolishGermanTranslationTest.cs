@@ -17,13 +17,14 @@ namespace Mors.Words.Test
             var handler = new AddPolishGermanTranslationCommandHandler();
             var events = new EventRecorder();
 
-            handler.Execute(command, events.Record);
+            handler.Execute(command, events.Record, () => 1);
 
             events.AssertRecordedOneEvent<PolishGermanTranslationAddedEvent>(
                 e =>
                 {
                     Assert.Equal("krzesło", e.PolishWord);
                     Assert.Equal("der Stuhl", e.GermanWord);
+                    Assert.Equal(1, e.TranslationId);
                 });
         }
 
@@ -37,7 +38,7 @@ namespace Mors.Words.Test
 
             Assert.Throws<Exception>(() =>
             {
-                handler.Execute(command, events.Record);
+                handler.Execute(command, events.Record, () => 1);
             });
             events.AssertAllEvents(e => Assert.IsNotType<PolishGermanTranslationAddedEvent>(e));
         }
@@ -52,7 +53,7 @@ namespace Mors.Words.Test
 
             Assert.Throws<Exception>(() =>
             {
-                handler.Execute(command, events.Record);
+                handler.Execute(command, events.Record, () => 1);
             });
             events.AssertAllEvents(e => Assert.IsNotType<PolishGermanTranslationAddedEvent>(e));
         }
