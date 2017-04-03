@@ -1,18 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.31101.0
+# Visual Studio 15
+VisualStudioVersion = 15.0.26228.12
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mors.Words", "Mors.Words\Mors.Words.csproj", "{6C2B66CE-CB0E-41A6-B1A8-3BCA7FC9E420}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mors.Words.Test", "Mors.Words.Test\Mors.Words.Test.csproj", "{4B659CB3-E28D-4D30-9013-5A6088F36E75}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mors.Words.Data", "Mors.Words.Data\Mors.Words.Data.csproj", "{B5B94F62-20AE-4CC3-8108-41714EDB0EA9}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{FFAD3B2F-4BC0-4F87-B055-31602896A9B8}"
-	ProjectSection(SolutionItems) = preProject
-		.nuget\packages.config = .nuget\packages.config
-	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
