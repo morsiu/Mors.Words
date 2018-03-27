@@ -58,7 +58,7 @@ namespace Mors.Words.Test
             events.AssertAllEvents(e => Assert.IsNotType<PolishGermanTranslationAddedEvent>(e));
         }
 
-        public static IEnumerable<IEnumerable<string>> IncorrectWords =
+        public static IEnumerable<object[]> IncorrectWords =
             new[]
             { 
                 new[] { default(string) },
