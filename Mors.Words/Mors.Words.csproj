@@ -1,12 +1,12 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net46</TargetFramework>
+    <TargetFramework>netstandard2.0</TargetFramework>
     <PackageProjectUrl>https://github.com/morsiu/Words</PackageProjectUrl>
-    <Copyright>Copyright © Łukasz Mrozek 2015</Copyright>
+    <Copyright>Copyright © Łukasz Mrozek 2019</Copyright>
     <Authors>Łukasz Mrozek</Authors>
     <Description>Words application</Description>
-    <Version>0.0.1</Version>
+    <Version>0.0.2</Version>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
 
