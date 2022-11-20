@@ -2,5 +2,5 @@
 
 namespace Mors.Words
 {
-    public delegate void QueryRegister(Type queryType, Action<object> queryHandler);
+    public delegate void QueryRegister(Type queryType, Func<object, object> queryHandler);
 }
