@@ -8,6 +8,7 @@
     <Description>Words application</Description>
     <Version>0.0.2</Version>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <LangVersion>11</LangVersion>
   </PropertyGroup>
 
   <ItemGroup>

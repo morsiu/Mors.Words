@@ -1,5 +1,8 @@
 ﻿using Mors.Words.CommandHandlers;
 using Mors.Words.Data.Commands;
+using Mors.Words.Data.Events;
+using Mors.Words.Data.Queries;
+using Mors.Words.QueryHandlers;
 
 namespace Mors.Words
 {
@@ -7,10 +10,25 @@ namespace Mors.Words
     {
         public void BootstrapCommands(CommandRegister commandRegister)
         {
-            var commandHandler = new AddPolishGermanTranslationCommandHandler();
+            var addPolishGermantTranslationCommandHander = new AddPolishGermanTranslationCommandHandler();
             commandRegister(
                 typeof(AddPolishGermanTranslationCommand),
-                (command, eventPublisher, idFactory) => commandHandler.Execute((AddPolishGermanTranslationCommand)command, eventPublisher, idFactory));
+                (command, eventPublisher, idFactory) =>
+                addPolishGermantTranslationCommandHander.Execute(
+                    (AddPolishGermanTranslationCommand)command,
+                    eventPublisher,
+                    idFactory));
+            var trackWordCommandHandler = new TrackWordCommandHandler();
+            commandRegister(
+                typeof(TrackWordCommand),
+                (x, eventPublisher, _) => trackWordCommandHandler.Execute((TrackWordCommand)x, eventPublisher));
+        }
+
+        public void BootstrapQueries(QueryRegister queryRegister, EventRegister eventRegister)
+        {
+            var wordCountView = new WordCountView();
+            eventRegister(typeof(WordTrackedEvent), x => wordCountView.Execute((WordTrackedEvent)x));
+            queryRegister(typeof(TrackedWordsQuery), x => wordCountView.Execute((TrackedWordsQuery)x));
         }
     }
 }
