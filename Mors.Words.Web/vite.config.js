@@ -3,8 +3,9 @@ import { fileURLToPath, URL } from 'node:url'
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 
-// https://vitejs.dev/config/
-export default defineConfig({
+export default defineConfig(env => ({
+  base: env.command == "build" ? "/sites/words/" : "",
+  define: { "__API_URL__": JSON.stringify(env.command == "build" ? "http://192.168.0.213:65363" : "http://localhost:65363") },
   plugins: [vue()],
   resolve: {
     alias: {
@@ -12,3 +13,4 @@ export default defineConfig({
     }
   }
 })
+)

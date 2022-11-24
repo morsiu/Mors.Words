@@ -1,5 +1,5 @@
-const commandUrl = "http://localhost:6536/api/command"
-const queryUrl = "http://localhost:6536/api/query"
+const commandUrl = `${__API_URL__}/api/command`
+const queryUrl = `${__API_URL__}/api/query`
 
 export async function trackedWords() {
     const response = await fetch(queryUrl, {
