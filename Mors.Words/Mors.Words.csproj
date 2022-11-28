@@ -2,12 +2,6 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <PackageProjectUrl>https://github.com/morsiu/Words</PackageProjectUrl>
-    <Copyright>Copyright © Łukasz Mrozek 2019</Copyright>
-    <Authors>Łukasz Mrozek</Authors>
-    <Description>Words application</Description>
-    <Version>0.0.3</Version>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <LangVersion>11</LangVersion>
   </PropertyGroup>
 
