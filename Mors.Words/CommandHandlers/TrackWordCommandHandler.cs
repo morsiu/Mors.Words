@@ -33,15 +33,15 @@ namespace Mors.Words.CommandHandlers
             }
         }
 
-        public IEnumerable<WordContext> ToWordContext(WordContexts x)
+        public IEnumerable<Data.Events.WordContext> ToWordContext(WordContexts x)
         {
             if ((x & WordContexts.Meaning) == WordContexts.Meaning)
             {
-                yield return WordContext.Meaning;
+                yield return Data.Events.WordContext.Meaning;
             }
             if ((x & WordContexts.Pronunciation) == WordContexts.Pronunciation)
             {
-                yield return WordContext.Pronunciation;
+                yield return Data.Events.WordContext.Pronunciation;
             }
         }
     }

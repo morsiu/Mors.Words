@@ -22,12 +22,17 @@ namespace Mors.Words
             commandRegister(
                 typeof(TrackWordCommand),
                 (x, eventPublisher, _) => trackWordCommandHandler.Execute((TrackWordCommand)x, eventPublisher));
+            var hideWordCommandHandler = new HideWordCommandHandler();
+            commandRegister(
+                typeof(HideWordCommand),
+                (x, eventPublisher, _) => hideWordCommandHandler.Execute((HideWordCommand)x, eventPublisher));
         }
 
         public void BootstrapQueries(QueryRegister queryRegister, EventRegister eventRegister)
         {
-            var wordCountView = new WordCountView();
+            var wordCountView = new WordView();
             eventRegister(typeof(WordTrackedEvent), x => wordCountView.Execute((WordTrackedEvent)x));
+            eventRegister(typeof(WordHiddenEvent), x => wordCountView.Execute((WordHiddenEvent)x));
             queryRegister(typeof(TrackedWordsQuery), x => wordCountView.Execute((TrackedWordsQuery)x));
         }
     }
