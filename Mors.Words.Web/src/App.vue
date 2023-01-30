@@ -9,6 +9,12 @@ const trackedWords = ref([]);
 
 refreshTrackedWords();
 
+async function hideWord(word, meaning) {
+  if (await api.hideWord({ word, meaning })) {
+    await refreshTrackedWords();
+  }
+}
+
 async function trackWord(newWord, meaning, pronunciation) {
   if (await api.trackWord({ word: newWord, pronunciation, meaning })) {
     word.value = "";
@@ -17,8 +23,8 @@ async function trackWord(newWord, meaning, pronunciation) {
 }
 
 async function refreshTrackedWords() {
-    const newTrackedWords = await api.trackedWords();
-    trackedWords.value = newTrackedWords;
+  const newTrackedWords = await api.trackedWords();
+  trackedWords.value = newTrackedWords;
 }
 </script>
 
@@ -39,10 +45,11 @@ async function refreshTrackedWords() {
         <td>Context</td>
       </thead>
       <tbody>
-        <tr v-for="item in trackedWords">
+        <tr v-for="item in trackedWords" :class="{ hidden: item.hidden }">
           <td>{{ item.word }}</td>
           <td>{{ item.count }}</td>
           <td>{{ item.context }}</td>
+          <td> <button v-if="!item.hidden" @click="hideWord(item.word, item.context)">Hide</button></td>
         </tr>
       </tbody>
     </table>
@@ -50,5 +57,7 @@ async function refreshTrackedWords() {
 </template>
 
 <style scoped>
-
+.hidden {
+  text-decoration: line-through;
+}
 </style>
